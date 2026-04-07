@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { bookContext } from '../../Context/BookContext';
 
 const BookDetails = () => {
     const { bookId: bookParamsId } = useParams();
@@ -7,6 +8,10 @@ const BookDetails = () => {
     const expectedBook = books.find(book => book.bookId === Number(bookParamsId));
     const { bookId, bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = expectedBook;
     console.log(bookId);
+
+    const { handleMarkAsRead, storedBooks } = useContext(bookContext);
+
+
     return (
         <div className="grid grid-cols-2 bg-base-100 shadow-sm container mx-auto my-8">
             <figure className='w-full flex items-center justify-center bg-gray-100 rounded-xl'>
@@ -22,7 +27,7 @@ const BookDetails = () => {
                 <p>Review: {review}</p>
                 <div className='flex items-center gap-2'>
                     {
-                    tags.map((tag, index) => <div key={index} className="badge badge-success text-white">{tag}</div>)
+                        tags.map((tag, index) => <div key={index} className="badge badge-success text-white">{tag}</div>)
                     }
                 </div>
                 <div className="border-t space-y-3">
@@ -40,8 +45,8 @@ const BookDetails = () => {
                     </div>
 
                     <div className='flex items-center gap-2'>
-                    <button className="btn btn-ghost btn-outline">Read</button>
-                    <button className="btn btn-accent">Wishlist</button>
+                        <button className="btn btn-ghost btn-outline" onClick={() => handleMarkAsRead(expectedBook)}>Mark as Read</button>
+                        <button className="btn btn-accent">Add to Wishlist</button>
                     </div>
                 </div>
             </div>
