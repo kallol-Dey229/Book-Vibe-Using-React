@@ -9,7 +9,7 @@ const BookDetails = () => {
     const { bookId, bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing } = expectedBook;
     console.log(bookId);
 
-    const { handleMarkAsRead, storedBooks } = useContext(bookContext);
+    const { handleMarkAsRead, handleWishList } = useContext(bookContext);
 
 
     return (
@@ -46,7 +46,7 @@ const BookDetails = () => {
 
                     <div className='flex items-center gap-2'>
                         <button className="btn btn-ghost btn-outline" onClick={() => handleMarkAsRead(expectedBook)}>Mark as Read</button>
-                        <button className="btn btn-accent">Add to Wishlist</button>
+                        <button className="btn btn-accent" onClick={()=>handleWishList(expectedBook)}>Add to Wishlist</button>
                     </div>
                 </div>
             </div>
