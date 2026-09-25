@@ -10,7 +10,7 @@ const BookDetails = () => {
     console.log(bookId);
 
     const { handleMarkAsRead, handleWishList } = useContext(bookContext);
-
+//
 
     return (
         <div className="grid grid-cols-2 bg-base-100 shadow-sm container mx-auto my-8">

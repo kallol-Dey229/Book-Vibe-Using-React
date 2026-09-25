@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 
 const getAllReadListFromLocalDB = () => {
   const allReadList = localStorage.getItem("readList");
@@ -16,7 +15,7 @@ const addReadListToLocalDB = (book) => {
     if (!isExistBook) {
         allBooks.push(book);
         localStorage.setItem("readList", JSON.stringify(allBooks));
-        toast.success(`${book.bookName} is added to LocalDB`)
+        
     }
 }
 
@@ -35,7 +34,7 @@ const addWishListToLocalDB = (book) => {
     if (!isExistBook) {
         allBooks.push(book);
         localStorage.setItem("wishList", JSON.stringify(allBooks));
-        toast.success(`${book.bookName} is added to LocalDB`)
+        
     }
 }
 
