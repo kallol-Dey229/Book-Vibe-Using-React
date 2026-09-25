@@ -19,7 +19,7 @@ const BookContext = ({ children }) => {
         //2.where to store
         //3.array or collection
         //4.If book is already exist then show an alert
-        //5.if not then add the the book in the array 
+        
 
         addReadListToLocalDB(currentBook);
 
