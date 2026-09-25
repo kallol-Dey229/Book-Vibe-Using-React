@@ -15,12 +15,7 @@ const BookContext = ({ children }) => {
     // }, []);
 
     const handleMarkAsRead = (currentBook) => {
-        //1:store book id
-        //2.where to store
-        //3.array or collection
-        //4.If book is already exist then show an alert
         
-
         addReadListToLocalDB(currentBook);
 
         const isExistBook = readList.find(book => book.bookId == currentBook.bookId);
